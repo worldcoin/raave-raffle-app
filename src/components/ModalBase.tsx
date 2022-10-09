@@ -41,7 +41,7 @@ const ModalBase: FC<Props> = ({ modalState, backdrop, dismissible = true, childr
 				<div className="pointer-events-auto">{children}</div>
 			</div>
 
-			<div className="absolute inset-0 z-0 bg-202124/50" onClick={handleClickOverlay}>
+			<div className="absolute inset-0 z-0 bg-slate-300/30 cursor-pointer" onClick={handleClickOverlay}>
 				{backdrop}
 			</div>
 		</div>

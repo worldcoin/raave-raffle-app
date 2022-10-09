@@ -53,7 +53,7 @@ const ProfileCard: FC<Props> = ({ profile, verified, className }) => {
 				{verified ? (
 					<p className="text-green-500">Eligible to participate 🎉🎉🎉</p>
 				) : (
-					<p className="text-red-500">Verify with World ID first</p>
+					<p className="text-orange-500 italic">Verify with World ID first</p>
 				)}
 			</div>
 		</div>
