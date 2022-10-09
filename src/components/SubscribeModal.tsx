@@ -1,9 +1,11 @@
-import ProfileCard from '@/components/ProfileCard'
-import useProfiles from '@/hooks/useProfiles'
-import { useToggle } from '@/hooks/useToggle'
-import { FC, memo, useState } from 'react'
-import Button from './Button'
 import Modal from './Modal'
+import Button from './Button'
+import { useToggle } from '@/hooks/useToggle'
+import useProfiles from '@/hooks/useProfiles'
+import ProfileCard from '@/components/ProfileCard'
+import LensHumanRaffle from '@/abi/LensHumanRaffle.abi.json'
+import { FC, memo, useCallback, useMemo, useState } from 'react'
+import { useContractRead, useContractWrite, usePrepareContractWrite } from 'wagmi'
 
 type Props = {
 	modalState: ReturnType<typeof useToggle>
@@ -14,6 +16,31 @@ const SubscribeModal: FC<Props> = ({ modalState, onSuccess }) => {
 	const { profiles, loading } = useProfiles()
 	const profileToSubscribe = profiles?.find(profile => profile.onChainIdentity.worldcoin.isHuman)
 	const [subscribing, setSubscribing] = useState(false)
+
+	const { data, status } = useContractRead({
+		functionName: 'isParticipating',
+		args: [profileToSubscribe?.id],
+		enabled: !!profileToSubscribe,
+		contractInterface: LensHumanRaffle,
+		addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+	})
+
+	const hasEntered = useMemo<boolean>(() => status == 'success' && (data as unknown as boolean), [status, data])
+
+	const { config } = usePrepareContractWrite({
+		functionName: 'enter',
+		enabled: !!profileToSubscribe,
+		args: [profileToSubscribe?.id],
+		contractInterface: LensHumanRaffle,
+		addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+	})
+
+	const { write } = useContractWrite({ ...config, onSuccess })
+
+	const requestEntry = useCallback(() => {
+		write()
+		setSubscribing(true)
+	}, [write])
 
 	return (
 		<Modal modalState={modalState}>
@@ -42,15 +69,15 @@ const SubscribeModal: FC<Props> = ({ modalState, onSuccess }) => {
 
 						{profileToSubscribe ? (
 							<div className="mt-8 flex justify-center">
-								<Button onClick={onSuccess} loading={subscribing}>
-									Subscribe to raffle
+								<Button onClick={requestEntry} loading={subscribing} disabled={hasEntered}>
+									{hasEntered ? 'Already participating!' : 'Subscribe to raffle'}
 								</Button>
 							</div>
 						) : (
 							<div className="mt-8 text-center">
-								<p>Looks like you don't have a verified Lens profile yet, fren 😢</p>
+								<p>Looks like you don&apos;t have a verified Lens profile yet, fren 😢</p>
 								<div className="mt-4">
-									<a href="https://human.withlens.app" target="_blank" rel="noopener">
+									<a href="https://human.withlens.app" target="_blank" rel="noopener noreferrer">
 										<Button>Verify my profile now ➡️</Button>
 									</a>
 								</div>

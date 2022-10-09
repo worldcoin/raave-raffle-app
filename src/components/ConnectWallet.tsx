@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { chain, useSwitchNetwork } from 'wagmi'
-import { ConnectKitButton } from 'connectkit'
 import Button from './Button'
+import { ConnectKitButton } from 'connectkit'
+import { chain, useSwitchNetwork } from 'wagmi'
 import { ChevronRightIcon } from '@heroicons/react/outline'
 
 type Visibility = 'always' | 'connected' | 'not_connected'

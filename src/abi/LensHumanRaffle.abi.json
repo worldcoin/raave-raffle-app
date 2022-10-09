@@ -1,0 +1,91 @@
+[
+	{
+		"inputs": [
+			{ "internalType": "contract ERC721", "name": "_lensNft", "type": "address" },
+			{ "internalType": "contract HumanCheck", "name": "_humanCheck", "type": "address" },
+			{ "internalType": "uint256", "name": "_numWinners", "type": "uint256" },
+			{ "internalType": "uint256", "name": "_endsAt", "type": "uint256" }
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{ "inputs": [], "name": "InvalidProfile", "type": "error" },
+	{ "inputs": [], "name": "RaffleEnded", "type": "error" },
+	{ "inputs": [], "name": "RaffleRunning", "type": "error" },
+	{
+		"anonymous": false,
+		"inputs": [{ "indexed": false, "internalType": "uint256[]", "name": "winners", "type": "uint256[]" }],
+		"name": "EndedRaffle",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{ "indexed": true, "internalType": "uint256", "name": "profileId", "type": "uint256" }],
+		"name": "JoinedRaffle",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "endsAt",
+		"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{ "internalType": "uint256", "name": "profileId", "type": "uint256" }],
+		"name": "enter",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+		"name": "getParticipant",
+		"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "humanCheck",
+		"outputs": [{ "internalType": "contract HumanCheck", "name": "", "type": "address" }],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+		"name": "isParticipating",
+		"outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "lensNft",
+		"outputs": [{ "internalType": "contract ERC721", "name": "", "type": "address" }],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "numWinners",
+		"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "participantCount",
+		"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{ "inputs": [], "name": "settle", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+	{
+		"inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+		"name": "winners",
+		"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

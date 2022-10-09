@@ -1,8 +1,10 @@
 import cn from 'classnames'
-import { FC, memo } from 'react'
-import { Profile } from '@/types/lens'
-import VerifiedIcon from './Icons/VerifiedIcon'
 import LensAvatar from './LensAvatar'
+import { Profile } from '@/types/lens'
+import { useContractRead } from 'wagmi'
+import { FC, memo, useMemo } from 'react'
+import VerifiedIcon from './Icons/VerifiedIcon'
+import LensHumanRaffle from '@/abi/LensHumanRaffle.abi.json'
 
 type Props = {
 	profile: Profile
@@ -11,6 +13,16 @@ type Props = {
 }
 
 const ProfileCard: FC<Props> = ({ profile, verified, className }) => {
+	const { data, status } = useContractRead({
+		enabled: !!profile,
+		args: [profile?.id],
+		functionName: 'isParticipating',
+		contractInterface: LensHumanRaffle,
+		addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+	})
+
+	const hasEntered = useMemo<boolean>(() => status == 'success' && (data as unknown as boolean), [status, data])
+
 	return (
 		<div
 			className={cn(
@@ -50,7 +62,9 @@ const ProfileCard: FC<Props> = ({ profile, verified, className }) => {
 					)}
 				</p>
 
-				{verified ? (
+				{hasEntered ? (
+					<p className="text-orange-500">Already participating!</p>
+				) : verified ? (
 					<p className="text-green-500">Eligible to participate 🎉🎉🎉</p>
 				) : (
 					<p className="text-orange-500 italic">Verify with World ID first</p>

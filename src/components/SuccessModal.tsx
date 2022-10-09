@@ -1,6 +1,6 @@
-import { useToggle } from '@/hooks/useToggle'
-import { FC, memo } from 'react'
 import Modal from './Modal'
+import { FC, memo } from 'react'
+import { useToggle } from '@/hooks/useToggle'
 import { CheckCircleIcon } from '@heroicons/react/outline'
 
 type Props = {

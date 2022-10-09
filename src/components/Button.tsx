@@ -1,6 +1,6 @@
-import { ComponentPropsWithoutRef, ElementType, FC, memo } from 'react'
 import cn from 'classnames'
 import LoaderIcon from './Icons/LoaderIcon'
+import { ComponentPropsWithoutRef, ElementType, FC, memo } from 'react'
 
 interface ButtonInterface<C extends ElementType = 'button'> {
 	size?: 'default' | 'large' | 'medium'
