@@ -68,6 +68,18 @@ const Home: FC = () => {
 								<Button onClick={() => subscribeModal.toggleOn()}>Subscribe now</Button>
 							)}
 						</div>
+						<div className="mt-8 text-green-900/80 text-center">
+							5 random winners will be{' '}
+							<a
+								href="https://polygonscan.com/address/0x24bbdba114da81429d84752d9226b18d16fcbcc4"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-green-500 underline"
+							>
+								selected automatically
+							</a>{' '}
+							the day of rAAVE.
+						</div>
 					</div>
 				</div>
 			</div>

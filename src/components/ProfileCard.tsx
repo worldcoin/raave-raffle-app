@@ -29,7 +29,7 @@ const ProfileCard: FC<Props> = ({ profile, verified, className }) => {
 				'flex items-stretch p-5',
 				'transition-colors',
 				{
-					'cursor-not-allowed bg-slate-700 text-slate-300': !verified,
+					'cursor-not-allowed bg-neutral-100': !verified,
 				},
 				className
 			)}
