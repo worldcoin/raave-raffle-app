@@ -59,9 +59,7 @@ const PROFILES_QUERY = gql`
 `
 
 const useProfiles = () => {
-	//const { address } = useAccount()
-	const address = '0xE340b00B6B622C136fFA5CFf130eC8edCdDCb39D'
-
+	const { address } = useAccount()
 	const { data, loading, error } = useQuery<{ profiles: PaginatedProfileResult }, { address: string }>(
 		PROFILES_QUERY,
 		{ variables: { address: address }, skip: !address }

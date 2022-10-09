@@ -48,7 +48,7 @@ const SubscribeModal: FC<Props> = ({ modalState, onSuccess }) => {
 							</div>
 						) : (
 							<div className="mt-8 text-center">
-								<p>Looks like you don't have a verified Lens profile yet, fren</p>
+								<p>Looks like you don't have a verified Lens profile yet, fren 😢</p>
 								<div className="mt-4">
 									<a href="https://human.withlens.app" target="_blank" rel="noopener">
 										<Button>Verify my profile now ➡️</Button>
