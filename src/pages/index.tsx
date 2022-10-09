@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { FC, useCallback } from 'react'
 import Button from '@/components/Button'
-import MetaTags from '@/components/Metatags'
+import MetaTags from '@/components/MetaTags'
 import { useToggle } from '@/hooks/useToggle'
 import { useAccount, useNetwork } from 'wagmi'
 import raavePoster from '@images/raave-poster.jpeg'
