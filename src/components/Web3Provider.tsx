@@ -1,4 +1,3 @@
-import { useTheme } from 'next-themes'
 import { APP_NAME } from '@/lib/consts'
 import { chain, createClient, WagmiConfig } from 'wagmi'
 import { ConnectKitProvider, getDefaultClient } from 'connectkit'
@@ -13,11 +12,9 @@ const client = createClient(
 )
 
 const Web3Provider = ({ children }) => {
-	const { resolvedTheme } = useTheme()
-
 	return (
 		<WagmiConfig client={client}>
-			<ConnectKitProvider mode={resolvedTheme as 'light' | 'dark'}>{children}</ConnectKitProvider>
+			<ConnectKitProvider mode="dark">{children}</ConnectKitProvider>
 		</WagmiConfig>
 	)
 }

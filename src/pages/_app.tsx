@@ -6,7 +6,7 @@ import Web3Provider from '@/components/Web3Provider'
 
 const App = ({ Component, pageProps }) => {
 	return (
-		<ThemeProvider attribute="class">
+		<ThemeProvider attribute="class" forcedTheme="dark">
 			<ApolloProvider client={client}>
 				<Web3Provider>
 					<Component {...pageProps} />
