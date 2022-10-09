@@ -12,14 +12,14 @@ const SuccessModal: FC<Props> = ({ modalState }) => {
 		<Modal modalState={modalState}>
 			<div className="relative py-4 sm:pt-0">
 				<h2 className="mb-8 text-2xl font-bold flex justify-center">
-					<CheckCircleIcon className="text-green-600 w-8 mr-1" /> You're in!
+					<CheckCircleIcon className="text-green-600 w-8 mr-1" /> You&apos;re in!
 				</h2>
 				<p className="text-center">
-					You've been entered into the raffle. Winners will be announced in{' '}
+					You&apos;ve been entered into the raffle. Winners will be announced in{' '}
 					<a
 						href="https://lenster.xyz/u/worldcoin.lens"
 						target="_blank"
-						rel="noopener"
+						rel="noopener noreferrer"
 						className="text-indigo-400"
 					>
 						@worldcoin
