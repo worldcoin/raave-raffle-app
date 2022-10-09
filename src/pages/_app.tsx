@@ -1,8 +1,8 @@
+import client from '@/lib/apollo'
 import 'tailwindcss/tailwind.css'
 import { ThemeProvider } from 'next-themes'
-import Web3Provider from '@/components/Web3Provider'
-import client from '@/lib/apollo'
 import { ApolloProvider } from '@apollo/client'
+import Web3Provider from '@/components/Web3Provider'
 
 const App = ({ Component, pageProps }) => {
 	return (
