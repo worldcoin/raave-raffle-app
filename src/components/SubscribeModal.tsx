@@ -1,17 +1,19 @@
 import ProfileCard from '@/components/ProfileCard'
 import useProfiles from '@/hooks/useProfiles'
 import { useToggle } from '@/hooks/useToggle'
-import { FC, memo } from 'react'
+import { FC, memo, useState } from 'react'
 import Button from './Button'
 import Modal from './Modal'
 
 type Props = {
 	modalState: ReturnType<typeof useToggle>
+	onSuccess: () => void
 }
 
-const SubscribeModal: FC<Props> = ({ modalState }) => {
+const SubscribeModal: FC<Props> = ({ modalState, onSuccess }) => {
 	const { profiles, loading } = useProfiles()
 	const profileToSubscribe = profiles?.find(profile => profile.onChainIdentity.worldcoin.isHuman)
+	const [subscribing, setSubscribing] = useState(false)
 
 	return (
 		<Modal modalState={modalState}>
@@ -39,8 +41,10 @@ const SubscribeModal: FC<Props> = ({ modalState }) => {
 						</div>
 
 						{profileToSubscribe ? (
-							<div className="mt-8 text-center">
-								<Button>Subscribe to raffle</Button>
+							<div className="mt-8 flex justify-center">
+								<Button onClick={onSuccess} loading={subscribing}>
+									Subscribe to raffle
+								</Button>
 							</div>
 						) : (
 							<div className="mt-8 text-center">

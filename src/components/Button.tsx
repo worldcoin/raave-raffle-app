@@ -1,10 +1,11 @@
 import { ComponentPropsWithoutRef, ElementType, FC, memo } from 'react'
 import cn from 'classnames'
+import LoaderIcon from './Icons/LoaderIcon'
 
 interface ButtonInterface<C extends ElementType = 'button'> {
 	size?: 'default' | 'large' | 'medium'
 	disabled?: boolean
-	uppercase?: boolean
+	loading?: boolean
 	component?: C
 }
 
@@ -13,29 +14,33 @@ type Props<C extends ElementType = 'button'> = ButtonInterface<C> & ComponentPro
 const Button: FC<Props> = ({
 	disabled,
 	className,
-	uppercase,
+	loading,
 	size = 'default',
 	component: Component = 'button',
+	children,
 	...restProps
 }) => {
 	return (
 		<Component
 			className={cn(
 				{
-					'bg-indigo-600 hover:bg-183c4a hover:text-ffffff transition-colors': !disabled,
+					'hover:bg-indigo-600/80': !disabled && !loading,
 				},
-
-				'font-medium rounded-xl',
-				{ 'opacity-20': disabled },
+				'bg-indigo-600 transition-colors font-medium rounded-xl',
+				{ 'opacity-50': disabled || loading },
 				{ 'px-5 py-3': size === 'default' },
 				{ 'px-8 py-5': size === 'medium' },
 				{ 'px-8 py-6': size === 'large' },
-				{ uppercase },
+				{ 'cursor-not-allowed': disabled || loading },
+				{ 'flex items-center': loading },
 				className
 			)}
 			{...restProps}
-			disabled={disabled}
-		/>
+			disabled={disabled || loading}
+		>
+			{loading && <LoaderIcon />}
+			{children}
+		</Component>
 	)
 }
 

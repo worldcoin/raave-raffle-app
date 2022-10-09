@@ -23,7 +23,7 @@ const ProfileCard: FC<Props> = ({ profile, verified, className }) => {
 			)}
 		>
 			<span className="relative w-[80px] h-[80px] mr-4">
-				<LensAvatar className="absolute inset-0 rounded-full border" profile={profile} />
+				<LensAvatar className="absolute inset-0 rounded-full border border-slate-500" profile={profile} />
 				{verified && (
 					<span className="p-1 rounded-full absolute bottom-0 right-0 grid transition">
 						<VerifiedIcon className="w-5 h-5" />
