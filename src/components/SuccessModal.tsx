@@ -2,7 +2,7 @@ import Modal from './Modal'
 import confetti from 'canvas-confetti'
 import { useToggle } from '@/hooks/useToggle'
 import { FC, memo, useEffect, useRef } from 'react'
-import { CheckCircleIcon } from '@heroicons/react/outline'
+import { CheckCircleIcon, CheckIcon } from '@heroicons/react/outline'
 
 type Props = {
 	modalState: ReturnType<typeof useToggle>
@@ -37,32 +37,36 @@ const SuccessModal: FC<Props> = ({ modalState }) => {
 	return (
 		<Modal modalState={modalState} backdrop={<canvas className="w-full h-full" ref={confettiCanvas} />}>
 			<div className="relative py-4 sm:pt-0">
-				<h2 className="mb-8 text-2xl font-bold flex justify-center">
-					<CheckCircleIcon className="text-green-600 w-8 mr-1" /> You&apos;re in!
-				</h2>
-				<p className="text-center">
-					You&apos;ve been entered into the raffle. Winners will be announced in{' '}
+				<div className="flex items-center justify-center mb-4">
+					<div className="w-16 h-16 flex items-center justify-center bg-green-50 flex-shrink-0 rounded-full">
+						<div className="h-12 w-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+							<CheckIcon className="w-6 h-6 text-green-600" />
+						</div>
+					</div>
+				</div>
+				<p>
+					You&apos;ve been entered into the raffle. Winners will be announced from{' '}
 					<a
 						href="https://lenster.xyz/u/worldcoin.lens"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-indigo-400"
+						className="text-green-400"
 					>
-						@worldcoin
+						@worldcoin.lens
 					</a>{' '}
 					and on{' '}
 					<a
 						href="https://twitter.com/worldcoin"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-indigo-400"
+						className="text-green-400"
 					>
 						Twitter
 					</a>{' '}
-					(<i>or you can of course check the smart contract</i>).
+					(<i>or check the chain!</i>).
 				</p>
-				<p className="text-center mt-4">Keep an eye out for our post. Good luck!</p>
-				<p className="text-center mt-4">
+				<p className="mt-4">Keep an eye out for the post. Good luck!</p>
+				<p className="text-right mt-6">
 					<i>&#8212; Your frens at</i> 👻 x 🌱 x 🪩
 				</p>
 			</div>

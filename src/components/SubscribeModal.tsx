@@ -3,6 +3,7 @@ import Button from './Button'
 import { useToggle } from '@/hooks/useToggle'
 import useProfiles from '@/hooks/useProfiles'
 import ProfileCard from '@/components/ProfileCard'
+import { TicketIcon } from '@heroicons/react/outline'
 import LensHumanRaffle from '@/abi/LensHumanRaffle.abi.json'
 import { FC, memo, useCallback, useMemo, useState } from 'react'
 import { useContractRead, useContractWrite, usePrepareContractWrite } from 'wagmi'
@@ -45,14 +46,26 @@ const SubscribeModal: FC<Props> = ({ modalState, onSuccess }) => {
 	return (
 		<Modal modalState={modalState}>
 			<div className="relative py-4 sm:pt-0">
-				<h2 className="mb-8 text-2xl text-center font-bold">Enter the raffle to win a rAAVE tix 🎟</h2>
+				<div className="flex items-center mb-8 space-x-8">
+					<div className="w-16 h-16 flex items-center justify-center bg-green-50 flex-shrink-0 rounded-full -m-4">
+						<div className="h-12 w-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+							<TicketIcon className="w-6 h-6 text-green-600" />
+						</div>
+					</div>
+					<div>
+						<h2 className="text-xl font-medium">Let&apos;s get you that ticket!</h2>
+						<p className="text-black/70 text-sm">
+							Select your WorldID-verified profile to join the raffle.
+						</p>
+					</div>
+				</div>
 
 				{loading ? (
 					<div className="flex justify-center text-lg">Loading 👻 🍃 🪩...</div>
 				) : (
 					<>
 						<div className="grid w-100 max-w-full">
-							<div className="rounded-xl border border-slate-700 overflow-clip divide-y divide-slate-700">
+							<div className="rounded-xl border overflow-clip divide-y">
 								{profileToSubscribe ? (
 									<ProfileCard key={profileToSubscribe.id} profile={profileToSubscribe} verified />
 								) : (
@@ -67,7 +80,7 @@ const SubscribeModal: FC<Props> = ({ modalState, onSuccess }) => {
 							</div>
 						</div>
 
-						{profileToSubscribe ? (
+						{hasEntered ? null : profileToSubscribe ? (
 							<div className="mt-8 flex justify-center">
 								<Button onClick={requestEntry} loading={subscribing} disabled={hasEntered}>
 									{hasEntered ? 'Already participating!' : 'Subscribe to raffle'}

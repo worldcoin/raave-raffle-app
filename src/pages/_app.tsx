@@ -1,18 +1,15 @@
+import '@/styles/styles.css'
 import client from '@/lib/apollo'
-import 'tailwindcss/tailwind.css'
-import { ThemeProvider } from 'next-themes'
 import { ApolloProvider } from '@apollo/client'
 import Web3Provider from '@/components/Web3Provider'
 
 const App = ({ Component, pageProps }) => {
 	return (
-		<ThemeProvider attribute="class" forcedTheme="dark">
-			<ApolloProvider client={client}>
-				<Web3Provider>
-					<Component {...pageProps} />
-				</Web3Provider>
-			</ApolloProvider>
-		</ThemeProvider>
+		<ApolloProvider client={client}>
+			<Web3Provider>
+				<Component {...pageProps} />
+			</Web3Provider>
+		</ApolloProvider>
 	)
 }
 
