@@ -43,7 +43,7 @@ const Home: FC = () => {
 						<h1 className="text-4xl font-sora">
 							rAAVE Bogotá 2022 <span className="font-bold">humans-only raffle</span>
 						</h1>
-						<p className="text-center text-neutral-300">By 👻 rAAVE x 🍃 Lens x 🪩 Worldcoin</p>
+						<p className="text-center text-neutral-300">By 👻 rAAVE x 🌱 Lens x 🪩 Worldcoin</p>
 						<div className="mt-8">
 							<p className="text-center">
 								We&apos;re raffling <span className="text-3xl font-bold">5x rAAVE tix 🎟</span>
