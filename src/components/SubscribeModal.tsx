@@ -48,7 +48,7 @@ const SubscribeModal: FC<Props> = ({ modalState, onSuccess }) => {
 			<div className="relative py-4 sm:pt-0">
 				<div className="flex items-center mb-2 space-x- relative justify-center md:justify-end">
 					<div className="md:absolute md:-top-20 md:-left-20">
-						<img src="/images/raave-ticket.png" className="h-14 md:h-24 mb-4 sm:mb-0" />
+						<img src="/images/raave-ticket.png" alt="" className="h-14 md:h-24 mb-4 sm:mb-0" />
 					</div>
 					<WorldcoinLogo className="hidden sm:block mb-2" />
 				</div>
@@ -57,7 +57,7 @@ const SubscribeModal: FC<Props> = ({ modalState, onSuccess }) => {
 
 				<h2 className="text-2xl text-primary font-bold text-center">Let&apos;s get you that ticket!</h2>
 
-				<p className="text-center mb-4">You'll join the raffle with your Lens profile below</p>
+				<p className="text-center mb-4">You&apos;ll join the raffle with your Lens profile below</p>
 
 				<div className="border-b border-white/20 mb-6" />
 

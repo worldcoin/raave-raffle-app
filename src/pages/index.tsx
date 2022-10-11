@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { FC, useCallback } from 'react'
@@ -37,9 +38,9 @@ const Home: FC = () => {
 			>
 				<div className="p-6 flex mb-4">
 					<div className="flex-grow">
-						<a href="/">
+						<Link href="/">
 							<WorldcoinIcon className="w-8" />
-						</a>
+						</Link>
 					</div>
 					<div>
 						<ConnectWallet />
