@@ -9,7 +9,7 @@ const Footer = () => {
 					className="grid grid-flow-col gap-1 hover:text-white/70 transition-all duration-200"
 					href="https://twitter.com/letsraave"
 					target="_blank"
-					rel="noopener noreferrer"
+					rel="noreferrer noopener"
 				>
 					👻 Learn about rAAVE <ExternalLinkIcon className="h-4" />
 				</a>
@@ -17,7 +17,7 @@ const Footer = () => {
 					className="grid grid-flow-col gap-1 hover:text-white/70 transition-all duration-200"
 					href="https://lens.xyz"
 					target="_blank"
-					rel="noopener"
+					rel="noreferrer noopener"
 				>
 					🌱 Learn about Lens <ExternalLinkIcon className="h-4" />
 				</a>
@@ -25,7 +25,7 @@ const Footer = () => {
 					className="grid grid-flow-col gap-1 hover:text-white/70 transition-all duration-200"
 					href="https://id.worldcoin.org"
 					target="_blank"
-					rel="noopener"
+					rel="noreferrer noopener"
 				>
 					🪩 Learn about Worldcoin <ExternalLinkIcon className="h-4" />
 				</a>
