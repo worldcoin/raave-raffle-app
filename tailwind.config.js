@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 const commonGridTemplate = {
 	'fr/auto': '1fr auto',
 	'auto/fr': 'auto 1fr',
@@ -10,6 +12,16 @@ module.exports = {
 	content: ['./src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {},
+		colors: {
+			primary: '#C9E791',
+			muted: 'rgba(183, 211, 134, 0.5)',
+			inverse: '#0C0C0A',
+			transparent: 'transparent',
+			green: colors.green,
+		},
+		fontFamily: {
+			sora: ['Sora', 'system-ui'],
+		},
 	},
 	plugins: [],
 	gridTemplateColumns: {

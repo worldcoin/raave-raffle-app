@@ -24,9 +24,9 @@ const Button: FC<Props> = ({
 		<Component
 			className={cn(
 				{
-					'hover:bg-green-600/80': !disabled && !loading,
+					'hover:bg-primary/70': !disabled && !loading,
 				},
-				'bg-green-600 text-green-50 transition-colors font-medium rounded-xl',
+				'bg-primary text-inverse transition-colors font-bold rounded-full shadow-md uppercase',
 				{ 'opacity-50': disabled || loading },
 				{ 'px-5 py-3': size === 'default' },
 				{ 'px-8 py-5': size === 'medium' },

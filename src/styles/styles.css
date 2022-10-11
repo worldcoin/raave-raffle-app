@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-div.primary {
-	--background: #fff !important;
-	--hover-background: rgba(255, 255, 255, 0.7) !important;
-	--active-background: rgba(255, 255, 255, 0.7) !important;
+@font-face {
+	font-family: 'Sora';
+	font-weight: 600;
+	src: url('/fonts/Sora-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Sora';
+	font-weight: 300;
+	src: url('/fonts/Sora-Regular.ttf');
 }
