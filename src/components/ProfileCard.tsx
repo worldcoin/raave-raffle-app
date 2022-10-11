@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import classNames from 'classnames'
 import LensAvatar from './LensAvatar'
 import { Profile } from '@/types/lens'
 import { useContractRead } from 'wagmi'
@@ -29,13 +30,16 @@ const ProfileCard: FC<Props> = ({ profile, verified, className }) => {
 				'flex items-stretch p-5',
 				'transition-colors',
 				{
-					'cursor-not-allowed bg-neutral-100': !verified,
+					'cursor-not-allowed bg-white/10': !verified,
 				},
 				className
 			)}
 		>
 			<span className="relative w-20 h-20 mr-4">
-				<LensAvatar className="absolute inset-0 rounded-full" profile={profile} />
+				<LensAvatar
+					className={classNames('absolute inset-0 rounded-full', { grayscale: !verified })}
+					profile={profile}
+				/>
 				{verified && (
 					<span className="p-1 rounded-full absolute bottom-0 right-0 grid transition">
 						<VerifiedIcon width={20} height={20} border="text-white" />
@@ -63,7 +67,7 @@ const ProfileCard: FC<Props> = ({ profile, verified, className }) => {
 
 				<div className="text-sm">
 					{hasEntered ? (
-						<p className="text-green-500">You&apos;re in! Stay tuned for the results 😁</p>
+						<p className="text-blue-500">You&apos;re in! Stay tuned for the results 😁</p>
 					) : verified ? (
 						<p className="text-green-500">Eligible to participate 🎉🎉🎉</p>
 					) : (
