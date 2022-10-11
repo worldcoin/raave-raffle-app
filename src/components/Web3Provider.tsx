@@ -16,7 +16,7 @@ const Web3Provider = ({ children }) => {
 		<WagmiConfig client={client}>
 			<ConnectKitProvider
 				theme="auto"
-				mode="light"
+				mode="dark"
 				customTheme={{
 					'--ck-accent-color': '#22c55e',
 					'--ck-accent-text-color': '#EFFCD0',
