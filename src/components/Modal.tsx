@@ -6,7 +6,7 @@ type Props = PropsWithChildren<{ header?: ReactNode; onReturn?: () => void } & B
 const Modal: FC<Props> = ({ header, children, onReturn, ...baseProps }) => {
 	return (
 		<ModalBase {...baseProps}>
-			<div className="md:w-[500px] bg-white rounded-t-3xl md:rounded-xl md:drop-shadow-lg">
+			<div className="font-sora md:w-[500px] bg-depth text-white rounded-t-3xl md:rounded-xl md:drop-shadow-lg border border-white/20">
 				<div className="px-8 py-6">{children}</div>
 			</div>
 		</ModalBase>
