@@ -2,11 +2,13 @@ import cn from 'classnames'
 import LoaderIcon from './Icons/LoaderIcon'
 import { ComponentPropsWithoutRef, ElementType, FC, memo } from 'react'
 
+export type ButtonVariants = 'default' | 'primary'
 interface ButtonInterface<C extends ElementType = 'button'> {
 	size?: 'default' | 'large' | 'medium'
 	disabled?: boolean
 	loading?: boolean
 	component?: C
+	variant?: ButtonVariants
 }
 
 type Props<C extends ElementType = 'button'> = ButtonInterface<C> & ComponentPropsWithoutRef<C>
@@ -18,6 +20,7 @@ const Button: FC<Props> = ({
 	size = 'default',
 	component: Component = 'button',
 	children,
+	variant = 'default',
 	...restProps
 }) => {
 	return (
@@ -33,6 +36,10 @@ const Button: FC<Props> = ({
 				{ 'px-8 py-6': size === 'large' },
 				{ 'cursor-not-allowed': disabled || loading },
 				{ 'flex items-center': loading },
+				{
+					'w-full md:w-auto shadow-btn-primary outline outline-primary border-2 border-inverse/70 hover:-translate-y-0.5 hover:translate-x-0.5 transform transition-transform duration-200':
+						variant === 'primary',
+				},
 				className
 			)}
 			{...restProps}

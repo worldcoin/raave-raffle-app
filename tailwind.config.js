@@ -11,7 +11,11 @@ const commonGridTemplate = {
 module.exports = {
 	content: ['./src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
-		extend: {},
+		extend: {
+			boxShadow: {
+				'btn-primary': '0 0 8px #DFF5BA',
+			},
+		},
 		colors: {
 			primary: '#C9E791',
 			muted: 'rgba(183, 211, 134, 0.5)',

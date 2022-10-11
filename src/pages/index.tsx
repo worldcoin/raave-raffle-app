@@ -29,7 +29,7 @@ const Home: FC = () => {
 			<SubscribeModal modalState={subscribeModal} onSuccess={handleSuccess} />
 			<SuccessModal modalState={successModal} />
 			<div
-				className="bg-no-repeat bg-cover bg-center bg-inverse text-primary font-sora relative min-h-screen pt-24 pb-10 sm:pt-0"
+				className="bg-no-repeat bg-cover bg-center bg-inverse text-primary font-sora relative min-h-screen pb-10 pt-0"
 				style={{ backgroundImage: "url('/images/bg.png')" }}
 			>
 				<div className="p-6 flex mb-8">
@@ -49,8 +49,10 @@ const Home: FC = () => {
 							<Image src={raavePoster} placeholder="blur" alt="rAAVE Bogotá poster" />
 						</div>
 						<div className="mx-6 md:mx-0">
-							<p className="text-primary font-sora text-sm">By 👻 rAAVE x 🌱 Lens x 🪩 Worldcoin</p>
-							<h1 className="text-5xl font-sora text-primary font-bold text-center">
+							<p className="text-primary font-sora text-sm text-center mb-8 md:text-left">
+								By 👻 rAAVE x 🌱 Lens x 🪩 Worldcoin
+							</p>
+							<h1 className="text-5xl font-sora text-primary font-bold text-center md:text-left">
 								rAAVE Bogotá 2022{' '}
 								<div
 									className="border text-stroke text-stroke-primary text-transparent"
@@ -64,7 +66,7 @@ const Home: FC = () => {
 							</h1>
 
 							<div className="mt-8">
-								<div>
+								<div className="flex justify-center md:justify-start">
 									<img
 										src="/images/raave-ticket.png"
 										alt="We're giving away 5 rAAVE tickets"
@@ -90,13 +92,15 @@ const Home: FC = () => {
 								</ol>
 							</div>
 							<div className="mt-8">
-								<ConnectWallet visibility="not_connected" />
+								<ConnectWallet visibility="not_connected" buttonVariant="primary" />
 
 								{isConnected && !chain.unsupported && (
-									<Button onClick={() => subscribeModal.toggleOn()}>Subscribe now</Button>
+									<Button onClick={() => subscribeModal.toggleOn()} variant="primary">
+										Subscribe now
+									</Button>
 								)}
 							</div>
-							<div className="mt-8 text-center">
+							<div className="mt-8 text-center text-xs">
 								5 random winners will be{' '}
 								<a
 									href="https://polygonscan.com/address/0x24bbdba114da81429d84752d9226b18d16fcbcc4"
