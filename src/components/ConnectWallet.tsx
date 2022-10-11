@@ -1,12 +1,15 @@
 import { FC } from 'react'
-import Button from './Button'
 import { ConnectKitButton } from 'connectkit'
 import { chain, useSwitchNetwork } from 'wagmi'
+import Button, { ButtonVariants } from './Button'
 import { ChevronRightIcon } from '@heroicons/react/outline'
 
 type Visibility = 'always' | 'connected' | 'not_connected'
 
-const ConnectWallet: FC<{ visibility?: Visibility }> = ({ visibility = 'always' }) => {
+const ConnectWallet: FC<{ visibility?: Visibility; buttonVariant?: ButtonVariants }> = ({
+	visibility = 'always',
+	buttonVariant = 'default',
+}) => {
 	const { switchNetwork } = useSwitchNetwork()
 
 	return (
@@ -25,13 +28,21 @@ const ConnectWallet: FC<{ visibility?: Visibility }> = ({ visibility = 'always' 
 
 				if (unsupported) {
 					return (
-						<Button className="flex gap-x-4 items-center" onClick={() => switchNetwork(chain.polygon.id)}>
+						<Button
+							className="flex gap-x-4 items-center"
+							onClick={() => switchNetwork(chain.polygon.id)}
+							variant={buttonVariant}
+						>
 							Switch to Polygon <ChevronRightIcon className="h-4 w-4" />
 						</Button>
 					)
 				}
 
-				return <Button onClick={show}>Connect wallet</Button>
+				return (
+					<Button onClick={show} variant={buttonVariant}>
+						Connect wallet
+					</Button>
+				)
 			}}
 		</ConnectKitButton.Custom>
 	)
