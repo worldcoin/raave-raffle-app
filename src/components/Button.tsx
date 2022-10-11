@@ -34,7 +34,7 @@ const Button: FC<Props> = ({
 				{ 'cursor-not-allowed': disabled || loading },
 				{ 'flex items-center': loading },
 				{
-					'w-full md:w-auto shadow-btn-primary outline outline-primary hover:outline-offset-1 border-2 border-inverse/70 transition-all duration-200':
+					'w-full md:w-auto shadow-btn-primary ring ring-primary hover:ring-offset-primary hover:ring-offset-1 border-2 border-inverse/70 transition-all duration-200':
 						variant === 'primary',
 				},
 				className
