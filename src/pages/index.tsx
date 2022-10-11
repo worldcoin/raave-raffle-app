@@ -12,8 +12,8 @@ import SuccessModal from '@/components/SuccessModal'
 import SubscribeModal from '@/components/SubscribeModal'
 import WorldcoinIcon from '@/components/Icons/WorldcoinIcon'
 
-const ConnectWallet = dynamic(() => import('@/components/ConnectWallet'), { ssr: false })
 const RandFigs = dynamic(() => import('@/components/RandFigs'), { ssr: false })
+const ConnectWallet = dynamic(() => import('@/components/ConnectWallet'), { ssr: false })
 
 const Home: FC = () => {
 	const { chain } = useNetwork()
@@ -27,13 +27,13 @@ const Home: FC = () => {
 	}, [subscribeModal, successModal])
 
 	return (
-		<div className="relative min-h-screen bg-no-repeat bg-cover bg-center bg-inverse">
+		<div className="relative min-h-screen bg-no-repeat bg-cover bg-center bg-inverse flex flex-col">
 			<MetaTags />
 			<SubscribeModal modalState={subscribeModal} onSuccess={handleSuccess} />
 			<SuccessModal modalState={successModal} />
 			<RandFigs />
 			<div
-				className="text-primary font-sora relative h-full pb-4 pt-0"
+				className="text-primary font-sora relative h-full pb-4 pt-0 flex-1"
 				style={{ backgroundImage: "url('/images/bg.png')" }}
 			>
 				<div className="p-6 flex mb-4">
@@ -74,7 +74,7 @@ const Home: FC = () => {
 									<img
 										src="/images/raave-ticket.png"
 										alt="We're giving away 5 rAAVE tickets"
-										className="h-20"
+										className="h-32"
 									/>
 								</div>
 								<p className="mt-12">It&apos;s super easy to participate:</p>

@@ -26,9 +26,6 @@ const Button: FC<Props> = ({
 	return (
 		<Component
 			className={cn(
-				{
-					'hover:bg-primary/70': !disabled && !loading,
-				},
 				'bg-primary text-inverse transition-colors font-bold rounded-full shadow-md uppercase',
 				{ 'opacity-50': disabled || loading },
 				{ 'px-5 py-3': size === 'default' },
@@ -37,7 +34,7 @@ const Button: FC<Props> = ({
 				{ 'cursor-not-allowed': disabled || loading },
 				{ 'flex items-center': loading },
 				{
-					'w-full md:w-auto shadow-btn-primary outline outline-primary border-2 border-inverse/70 hover:-translate-y-0.5 hover:translate-x-0.5 transform transition-transform duration-200':
+					'w-full md:w-auto shadow-btn-primary outline outline-primary hover:outline-offset-1 border-2 border-inverse/70 transition-all duration-200':
 						variant === 'primary',
 				},
 				className
