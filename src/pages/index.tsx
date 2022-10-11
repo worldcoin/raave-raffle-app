@@ -2,6 +2,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { FC, useCallback } from 'react'
 import Button from '@/components/Button'
+import Footer from '@/components/Footer'
 import MetaTags from '@/components/MetaTags'
 import { useToggle } from '@/hooks/useToggle'
 import { useAccount, useNetwork } from 'wagmi'
@@ -11,6 +12,7 @@ import SubscribeModal from '@/components/SubscribeModal'
 import WorldcoinIcon from '@/components/Icons/WorldcoinIcon'
 
 const ConnectWallet = dynamic(() => import('@/components/ConnectWallet'), { ssr: false })
+const RandFigs = dynamic(() => import('@/components/RandFigs'), { ssr: false })
 
 const Home: FC = () => {
 	const { chain } = useNetwork()
@@ -24,15 +26,16 @@ const Home: FC = () => {
 	}, [subscribeModal, successModal])
 
 	return (
-		<>
+		<div className="relative min-h-screen bg-no-repeat bg-cover bg-center bg-inverse">
 			<MetaTags />
 			<SubscribeModal modalState={subscribeModal} onSuccess={handleSuccess} />
 			<SuccessModal modalState={successModal} />
+			<RandFigs />
 			<div
-				className="bg-no-repeat bg-cover bg-center bg-inverse text-primary font-sora relative min-h-screen pb-10 pt-0"
+				className="text-primary font-sora relative h-full pb-4 pt-0"
 				style={{ backgroundImage: "url('/images/bg.png')" }}
 			>
-				<div className="p-6 flex mb-8">
+				<div className="p-6 flex mb-4">
 					<div className="flex-grow">
 						<a href="/">
 							<WorldcoinIcon className="w-8" />
@@ -50,7 +53,7 @@ const Home: FC = () => {
 						</div>
 						<div className="mx-6 md:mx-0">
 							<p className="text-primary font-sora text-sm text-center mb-8 md:text-left">
-								By 👻 rAAVE x 🌱 Lens x 🪩 Worldcoin
+								👻 rAAVE x 🌱 Lens x 🪩 Worldcoin
 							</p>
 							<h1 className="text-5xl font-sora text-primary font-bold text-center md:text-left">
 								rAAVE Bogotá 2022{' '}
@@ -116,7 +119,8 @@ const Home: FC = () => {
 					</div>
 				</div>
 			</div>
-		</>
+			<Footer />
+		</div>
 	)
 }
 

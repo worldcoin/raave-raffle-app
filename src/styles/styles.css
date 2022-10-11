@@ -13,3 +13,7 @@
 	font-weight: 300;
 	src: url('/fonts/Sora-Regular.ttf');
 }
+
+body {
+	background-color: #0c0c0a;
+}

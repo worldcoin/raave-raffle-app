@@ -20,6 +20,8 @@ module.exports = {
 			primary: '#C9E791',
 			muted: 'rgba(183, 211, 134, 0.5)',
 			inverse: '#0C0C0A',
+			white: '#ffffff',
+			footer: '#1E1E1E',
 			transparent: 'transparent',
 			green: colors.green,
 		},
