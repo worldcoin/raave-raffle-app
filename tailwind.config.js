@@ -22,6 +22,7 @@ module.exports = {
 			inverse: '#0C0C0A',
 			depth: '#0C0E10',
 			white: '#ffffff',
+			black: '#000000',
 			footer: '#1E1E1E',
 			transparent: 'transparent',
 			green: colors.green,

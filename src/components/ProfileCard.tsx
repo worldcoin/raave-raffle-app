@@ -42,7 +42,7 @@ const ProfileCard: FC<Props> = ({ profile, verified, className }) => {
 				/>
 				{verified && (
 					<span className="p-1 rounded-full absolute bottom-0 right-0 grid transition">
-						<VerifiedIcon width={20} height={20} border="text-white" />
+						<VerifiedIcon width={20} height={20} border="text-black" />
 					</span>
 				)}
 			</span>
@@ -50,9 +50,9 @@ const ProfileCard: FC<Props> = ({ profile, verified, className }) => {
 			<div className="flex flex-col justify-between">
 				<div>
 					<div className="flex items-center gap-x-1">
-						<p className="font-semibold text-20 text-black">{profile.name}</p>
+						<p className="font-semibold text-20 text-white">{profile.name}</p>
 					</div>
-					<p className="text-black/60 text-sm">
+					<p className="text-white/60 text-sm">
 						<span>@{profile.handle}</span>
 						{verified && (
 							<>
