@@ -5,7 +5,7 @@ const MetaTags = () => {
 	const meta = {
 		title: "We're giving away 5 rAAVE Bogotá tickets!",
 		image: coverImg.src,
-		url: 'https://raave.worldcoin.org',
+		url: 'https://raave-raffle-app.vercel.app',
 		description:
 			"We've partnered with Lens to give away 5 rAAVE Bogotá tickets to WorldID-verified Lens profiles. See you on the dance floor! 🕺",
 	}
